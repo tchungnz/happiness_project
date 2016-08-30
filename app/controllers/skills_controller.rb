@@ -12,7 +12,12 @@ class SkillsController < ApplicationController
 
   def create
     @skill = Skill.create(skills_params)
-    redirect_to '/skills'
+    @skill.user_id = current_user.id
+    if @skill.save
+      redirect_to skills_path
+    else
+      render 'new'
+    end
   end
 
   private
