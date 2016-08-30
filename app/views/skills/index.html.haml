@@ -1,0 +1,10 @@
+Welcome to The Happiness Project
+
+- if @skills.any?
+  - @skills.each do |skill|
+    %h2= skill.name
+    %h2= skill.confidence
+- else
+  %h1 No skills yet!
+
+= link_to 'Add a skill', new_skill_path
