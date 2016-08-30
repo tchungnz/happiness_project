@@ -1,9 +1,15 @@
 Welcome to The Happiness Project
 
 - if @skills.any?
-  - @skills.each do |skill|
-    %h2= skill.name
-    %h2= skill.confidence
+  %table
+    %tbody
+      %tr
+        %td Skills:
+        %td Confidence:
+        - @skills.each do |skill|
+          %tr
+            %td=  skill.name
+            %td=  skill.confidence
 - else
   %h1 No skills yet!
 
