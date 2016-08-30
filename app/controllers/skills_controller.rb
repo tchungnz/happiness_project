@@ -1,15 +1,17 @@
 class SkillsController < ApplicationController
 
+  before_action :authenticate_user!, :except => [:index, :show]
+
   def index
     @skills = Skill.all
   end
 
   def new
-
+    @skill = Skill.new
   end
 
   def create
-    Skill.create(skills_params)
+    @skill = Skill.create(skills_params)
     redirect_to '/skills'
   end
 
@@ -17,6 +19,6 @@ class SkillsController < ApplicationController
 
   def skills_params
     params.require(:skill).permit(:name, :confidence)
-  end 
+  end
 
 end
