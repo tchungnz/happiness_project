@@ -1,6 +1,7 @@
 = form_for @skill do |f|
   = f.label :name
   = f.text_field :name
-  = f.label :confidence
-  = f.select :confidence, (1..10)
+  = fields_for @confidence do |f|
+    = f.label :rating
+    = f.select :rating, (1..10)
   = f.submit
