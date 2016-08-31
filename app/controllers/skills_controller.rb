@@ -29,6 +29,10 @@ class SkillsController < ApplicationController
     redirect_to '/skills'
   end
 
+  def email_skills
+    UserMailer.new_skills(@user).deliver_now
+  end
+
   private
 
   def skills_params
