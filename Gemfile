@@ -32,6 +32,7 @@ gem 'devise'
 gem 'pry'
 gem 'mechanize'
 gem 'whenever', :require => false
+gem 'bootstrap-slider-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
