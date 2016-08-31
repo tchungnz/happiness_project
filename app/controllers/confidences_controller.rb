@@ -6,10 +6,12 @@ class ConfidencesController < ApplicationController
   end
 
   def create
-    @confidence1 = Confidence.create(:rating => (params[:feedback][0][:rating]),
-                  :skill_id => params[:feedback][0][:skill_id])
-    @confidence2 = Confidence.create(:rating => (params[:feedback][1][:rating]),
-                  :skill_id => (params[:feedback][1][:skill_id]))
+    i=0
+    15.times do
+      Confidence.create(:rating => (params[:feedback][i][:rating]),
+                    :skill_id => params[:feedback][i][:skill_id])
+      i += 1
+    end
       redirect_to skills_path
   end
 

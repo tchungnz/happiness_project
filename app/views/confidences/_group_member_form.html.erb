@@ -7,5 +7,5 @@
 </h1>
 
 <label for="rating">Rating</label>
-<%= select_tag "feedback[][rating]", options_for_select(1..10) %>
+<%= select_tag "feedback[][rating]", options_for_select(1..10, selected: "#{@confidence_rating}") %>
 <%= hidden_field_tag "feedback[][skill_id]", @skill_id %>
