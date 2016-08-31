@@ -8,14 +8,16 @@ class SkillsController < ApplicationController
     end
   end
 
+
   def new
+    @skill_names = ["Ruby", "Javascript", "HTML", "CSS", "Command Line", "Communication","Project Work", "TDD", "Agile", "OOP", "Rails", "Databases", "ORM", "jQuery", "Version Control"]
     @skills = []
     @confidences = []
+    i = 0
     15.times do
-      @skills << Skill.new(name: "TDD")
-    end
-    15.times do
+      @skills << Skill.new(name: @skill_names[i])
       @confidences << Confidence.new
+      i += 1
     end
   end
 
