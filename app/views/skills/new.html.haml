@@ -1,6 +1,7 @@
 - @skills.zip(@confidences).each do |skill, confidence|
   = form_for skill do |f|
     = f.label skill.name
+    = f.hidden_field :name, value: skill.name
     = fields_for confidence do |f|
       = f.label :rating, 'Confidence'
       = f.select :rating, (1..10), {}, id: "confidence_level_#{skill.name}"
