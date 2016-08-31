@@ -2,6 +2,8 @@
   = form_for skill do |f|
     = f.label skill.name
     = fields_for confidence do |f|
-      = f.label :rating
-      = f.select :rating, (1..10)
-    = f.submit "Submit confidence"
+      = f.label :rating, 'Confidence'
+      = f.select :rating, (1..10), {}, id: "confidence_level_#{skill.name}"
+    = f.submit "Submit", id: "submit_confidence_level_#{skill.name}"
+
+= link_to "Submit all", skills_path
