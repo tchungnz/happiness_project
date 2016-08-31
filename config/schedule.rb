@@ -26,9 +26,9 @@ set :output, {:error => "/Users/TC/Documents/projects/happiness_project/log/cron
 #   runner "UserMailer.email_all_users"
 # end
 
-every 30.minutes do
-  rake "email:all_users"
-end
+# every 30.minutes do
+#   rake "email:all_users"
+# end
 
 # every :friday, :at => '5pm' do
 #   runner "Skill.email_skills"
