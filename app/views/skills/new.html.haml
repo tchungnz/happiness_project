@@ -1,7 +1,7 @@
-= form_for @skill do |f|
-  = f.label :name
-  = f.text_field :name
-  = fields_for @confidence do |f|
-    = f.label :rating
-    = f.select :rating, (1..10)
-  = f.submit
+= @skills.zip(@confidences).each do |skill, confidence|
+  = form_for skill do |f|
+    = f.label skill.name
+    = fields_for confidence do |f|
+      = f.label :rating
+      = f.select :rating, (1..10)
+    = f.submit "Submit confidence"
