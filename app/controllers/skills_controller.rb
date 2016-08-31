@@ -11,9 +11,12 @@ class SkillsController < ApplicationController
   def new
     @skills = []
     @confidences = []
-    @skills << 15.times { Skill.new(name: "TDD") }
-    binding.pry
-    @confidences << 15.times { Confidence.new }
+    15.times do
+      @skills << Skill.new(name: "TDD")
+    end
+    15.times do
+      @confidences << Confidence.new
+    end
   end
 
   def create

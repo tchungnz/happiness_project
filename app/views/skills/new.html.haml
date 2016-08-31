@@ -1,4 +1,4 @@
-= @skills.zip(@confidences).each do |skill, confidence|
+- @skills.zip(@confidences).each do |skill, confidence|
   = form_for skill do |f|
     = f.label skill.name
     = fields_for confidence do |f|
