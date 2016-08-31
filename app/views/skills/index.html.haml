@@ -1,6 +1,11 @@
 
 
-Welcome to The Happiness Project
+%h1{:id => "welcome-text"} The Happiness Project
+%h2{:id => "slogan"} Helping you achieve your light bulb moment
+.fullscreen-bg
+  %video.fullscreen-bg__video{:autoplay => "", :loop => "", :muted => "", :poster => "../Coverr-lamp/Coverr-lamp.jpg"}
+    %source{:src => "../Coverr-lamp/Coverr-lamp.webm", :type => "video/webm"}
+    %source{:src => "../Coverr-lamp/Coverr-lamp.mp4", :type => "video/mp4"}
 
 - if current_user
   - if @skills.any?
