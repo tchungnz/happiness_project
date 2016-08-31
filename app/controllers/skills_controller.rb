@@ -1,3 +1,5 @@
+require 'json'
+
 class SkillsController < ApplicationController
 
   before_action :authenticate_user!, :except => [:index, :show]
@@ -5,6 +7,14 @@ class SkillsController < ApplicationController
   def index
     if current_user
       @skills = current_user.skills
+      @skillsarray = []
+      @skills.each {|skill| @skillsarray.push(skill.name)}
+      i = 0
+      @con_array = []
+      @skills.each do
+        @con_array.push(@skills[i].confidences[-1].rating)
+        i += 1
+      end
     end
   end
 
