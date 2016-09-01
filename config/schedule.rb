@@ -20,7 +20,7 @@
 # Learn more: http://github.com/javan/whenever
 
 set :output, {:error => 'log/cron_error.log', :standard => "log/cron_log.log"}
-set :environment, 'development'
+set :environment, 'production'
 
 #contains resources and reminder to fill in confidence ratings
 every :weekday, :at '8am' do
