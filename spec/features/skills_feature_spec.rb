@@ -8,7 +8,7 @@ feature 'Skills' do
 
   context 'pre-determined skills have been added' do
     scenario 'display skills and input form for confidence level' do
-      visit '/skills'
+      visit '/'
       click_link 'Set confidence'
       expect(page).to have_content 'Ruby'
       expect(page).to have_content 'Agile'
@@ -26,7 +26,7 @@ feature 'Skills' do
       end
       click_button 'Submit'
       expect(current_path).to eq '/skills'
-      expect(page).to have_content 'Ruby 5'
+      page.has_css? 'g.highcharts-grid'
     end
   end
 end

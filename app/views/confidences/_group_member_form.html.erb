@@ -8,7 +8,7 @@
       <h3 id="skill-name"> <%= @skill %> </h3>
       <label class="rating-label" for="rating"></label>
       <div id=<%= @skill %>>
-        <%= select_tag "feedback[][rating]", options_for_select(1..10), class: "form-control selector", selected: "#{@confidence_rating}" %>
+        <%= select_tag "feedback[][rating]", options_for_select(1..10, selected: "#{@confidence_rating}"), class: "form-control selector" %>
         <%= hidden_field_tag "feedback[][skill_id]", @skill_id %>
       </div>
     </div>
