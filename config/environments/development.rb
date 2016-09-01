@@ -34,8 +34,8 @@ Rails.application.configure do
    :address              => 'smtp.gmail.com',
    :port                 => 587,
    :domain               => 'gmail.com',
-   :user_name            => Rails.application.secrets.gmail_email_address,
-   :password             => Rails.application.secrets.gmail_password,
+   :user_name            => 'thehappinessproject.makerthon@gmail.com',
+   :password             => 'happiness5',
    :authentication       => :plain,
   :enable_starttls_auto => true
   }
