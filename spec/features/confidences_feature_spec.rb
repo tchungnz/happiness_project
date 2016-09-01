@@ -9,15 +9,17 @@ feature 'Confidences' do
   context 'skills and initial confidence levels have been set' do
     scenario 'a user sets daily confidence levels' do
       visit '/skills'
-      click_link 'Set daily confidence levels'
-      select '5', from: 'confidence_level_Ruby'
-      click_button 'submit_confidence_level_Ruby'
-      select '7', from: 'confidence_level_Javascript'
-      click_button 'submit_confidence_level_Javascript'
-      click_link 'Submit all'
-      expect(current_path).to be '/skills'
-      expect(page).to have_content 'Ruby 5'
-      expect(page).to have_content 'Javascript 7'
+      click_link 'Set confidence'
+      within(:css, "#Ruby") do
+        select '5', from: 'feedback__rating'
+      end
+      within(:css, "#Javascript") do
+        select '7', from: 'feedback__rating'
+      end
+      click_button 'Submit'
+      expect(current_path).to eq '/skills'
+      expect(page).to have_content '5'
+      expect(page).to have_content '7'
     end
   end
 

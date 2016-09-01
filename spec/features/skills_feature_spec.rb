@@ -18,18 +18,17 @@ feature 'Skills' do
   context 'initial confidence levels submitted' do
     scenario 'user fills in initial confidence levels for pre-determined skills' do
       visit 'skills/new'
-      select '2', from: 'confidence_level_Ruby'
-      click_button 'submit_confidence_level_Ruby'
-      visit 'skills/new'
-      select '1', from: 'confidence_level_Javascript'
-      click_button 'submit_confidence_level_Javascript'
-      visit 'skills/new'
-      click_link 'Submit all'
+      within(:css, "#Ruby") do
+        select '5', from: 'feedback__rating'
+        end
+      within(:css, "#Javascript") do
+        select '7', from: 'feedback__rating'
+      end
+      click_button 'Submit'
       expect(current_path).to eq '/skills'
-      expect(page).to have_content 'Ruby 2'
+      expect(page).to have_content 'Ruby 5'
     end
   end
-
 end
 
 
