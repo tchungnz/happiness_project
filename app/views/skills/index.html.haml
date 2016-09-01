@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 #welcome-text
   %h1 BLOOM
   %h2 Skill tracking for budding web developers
@@ -12,6 +13,8 @@
 
 = link_to 'Set confidence', new_skill_path, {:id => "button"}
 
+=======
+>>>>>>> 116f8f2c9e8885dd2002b39a6809638257c486b0
 - if current_user
   - if @skills.any?
     %table{:border => 1}
@@ -31,6 +34,9 @@
 
   - else
     %h1 No skills yet!
+    %br
+    %br
+    = link_to 'Set confidence', new_skill_path, {:id => "button"}
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/highcharts-more.js"></script>
