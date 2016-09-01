@@ -141,10 +141,10 @@ tr td:hover { background: #666; color: #FFF; } /* Hover cell effect! */
 }
 
 .form-control.selector {
-    width: 4%;
+    width: 7%;
     display: inline-block;
-    position: fixed;
-    left: 1200px;
+    position: absolute;
+    left: 500px;
 }
 
 #quote {
@@ -153,4 +153,9 @@ tr td:hover { background: #666; color: #FFF; } /* Hover cell effect! */
 
 input.btn.btn-default {
   background-color: rgba(107, 186, 167, 0.5);
+}
+
+.notice {
+  color: white;
+  padding-top: 30px;
 }
