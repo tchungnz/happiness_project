@@ -19,23 +19,5 @@ feature 'Skills' do
       expect(page).to have_content('You need to sign in or sign up before continuing')
     end
   end
-
-  context 'initial confidence levels submitted' do
-    scenario 'user fills in initial confidence levels for pre-determined skills' do
-      visit 'skills/new'
-      within(:css, "#Ruby") do
-        select '5', from: 'feedback__rating'
-        end
-      within(:css, "#Javascript") do
-        select '7', from: 'feedback__rating'
-      end
-      click_button 'Submit'
-      expect(current_path).to eq '/skills'
-      page.has_css? 'g.highcharts-grid'
-      click_link 'View Data Table'
-      expect(page).to have_content 'Ruby 5'
-      expect(page).to have_content 'Javascript 7'
-    end
-  end
 end
 

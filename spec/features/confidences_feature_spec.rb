@@ -22,4 +22,13 @@ feature 'Confidences' do
       expect(page).to have_content 'Javascript 7'
     end
   end
+  scenario 'viewing individual graphs' do
+    visit '/skills'
+    click_link 'View Data Table'
+    click_link 'Ruby'
+    page.has_css? 'g.highcharts-grid'
+  end
+  
 end
+
+
