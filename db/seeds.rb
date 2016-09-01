@@ -24,8 +24,9 @@ if Link.count.zero?
   Link.create(name: "jQuery")
   Link.create(name: "Version Control")
 
+
   Link.all.each do |link|
-    start_mechanize('https://google.co.uk')
-    search_skill(link)
+    link.start_mechanize('https://google.co.uk')
+    link.search_skill(link)
   end
 end

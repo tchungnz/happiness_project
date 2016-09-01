@@ -2,7 +2,7 @@ require 'rubygems'
 require 'mechanize'
 
 class Link < ApplicationRecord
-end
+
   def start_mechanize(url)
     @agent = Mechanize.new
     @page = @agent.get(url)
@@ -23,7 +23,8 @@ end
         strList=str.split(%r{=|&})
         url=strList[1]
         resource.url_resources << url unless url.include? "webcache"
-        puts "this is url_resources #{resource.url_resources}"
+        resource.save
       end
     end
   end
+end
