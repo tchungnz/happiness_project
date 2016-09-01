@@ -31,3 +31,8 @@ end
 every :saturday, :at '10am' do
   rake "email:all_users_weekly"
 end
+
+every :sunday, :at '5am' do
+  rake "db:reset_links_model"
+  rake "db:seed"
+end

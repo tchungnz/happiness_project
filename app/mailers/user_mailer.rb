@@ -4,6 +4,8 @@ class UserMailer < ApplicationMailer
   def email_daily(user)
     @user = user
     @confidence_link_url  = 'http://example.com/login'
+    @skill = "Ruby"
+    @links = Link.find_by(name: "#{@skill}").url_resources
     mail(to: @user.email, subject: 'The Happiness Project: Useful Resources')
   end
 

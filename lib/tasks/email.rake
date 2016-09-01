@@ -19,3 +19,10 @@ namespace :email do
       puts "rake end"
   end
 end
+
+namespace :db do
+  desc "Sequentially clears out the models I don't care about"
+  task :reset_links_model => [:environment, :dotenv] do
+    Link.destroy_all
+  end
+end
