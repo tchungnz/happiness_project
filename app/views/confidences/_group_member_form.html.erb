@@ -2,10 +2,15 @@
   <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 
-<h1>
-  <%= @skill %>
-</h1>
-
-<label for="rating">Rating</label>
-<%= select_tag "feedback[][rating]", options_for_select(1..10) %>
-<%= hidden_field_tag "feedback[][skill_id]", @skill_id %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h3 id="skill-name"> <%= @skill %> </h3>
+      <label class="rating-label" for="rating">Rating</label>
+      <div id=<%= @skill %>>
+        <%= select_tag "feedback[][rating]", options_for_select(1..10), class: "form-control selector", selected: "#{@confidence_rating}" %>
+        <%= hidden_field_tag "feedback[][skill_id]", @skill_id %>
+      </div>
+    </div>
+  </div>
+</div>

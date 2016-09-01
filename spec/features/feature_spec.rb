@@ -4,7 +4,7 @@ feature 'Homepage' do
   context 'user is not signed up/in' do
     scenario 'should display a welcome message' do
       visit '/skills'
-      expect(page).to have_content 'Welcome to The Happiness Project'
+      expect(page).to have_content 'BLOOM.'
     end
   end
 end

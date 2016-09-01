@@ -1,41 +1,16 @@
 
-
-Welcome to The Happiness Project
-
-- if current_user
-  - if @skills.any?
-    %table{:border => 1}
-      %tbody
-        %tr
-          %td Skills:
-          - sum = 1
-          - @skills[0].confidences.length.times do
-            %td= "Day-#{sum}:"
-            - sum += 1
-          - @skills.each do |skill|
-            %tr
-              %td= skill.name
-              - skill.confidences.each do |confidence|
-                %td=  confidence.rating
-
-  - else
-    %h1 No skills yet!
-= link_to 'Set confidence', new_skill_path
-= link_to 'Set daily confidence levels', new_confidence_path
-
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/highcharts-more.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
-<div id="container" style="min-width: 400px; max-width: 600px; height: 400px; margin: 0 auto"></div>
+<div id="container" style="width:90%; height: 90%; position:absolute; margin: auto"></div>
 :JavaScript
   $(function () {
-
       $('#container').highcharts({
-
           chart: {
               polar: true,
-              type: 'line'
+              type: 'line',
+              backgroundColor: 'transparent'
           },
 
           title: {
@@ -61,7 +36,7 @@ Welcome to The Happiness Project
 
           tooltip: {
               shared: true,
-              pointFormat: '<span style="color:{series.color}">{series.name}: <b>${point.y:,.0f}</b><br/>'
+              pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f}</b><br/>'
           },
 
           legend: {
@@ -72,10 +47,14 @@ Welcome to The Happiness Project
           },
 
           series: [{
-              showInLegend: false,
+              name: 'Current ratings',
               data: #{@con_array},
               pointPlacement: 'on'
-          },
-          ]
+          },{
+             name: 'Original ratings',
+             data: #{@first_array},
+             pointPlacement: 'on',
+             color: '#FF00FF '
+         }]
       });
   });
