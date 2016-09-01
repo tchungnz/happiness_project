@@ -11,12 +11,12 @@ class SkillsController < ApplicationController
       @skills.each {|skill| @skillsarray.push(skill.name)}
       i = 0
       @con_array = []
-      if !@skills[-1].confidences[-1].nil?
+      # if !@skills[-1].confidences[-1].nil?
         @skills.each do
           @con_array.push(@skills[i].confidences[-1].rating)
           i += 1
         end
-      end
+      # end
     end
   end
 

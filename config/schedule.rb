@@ -19,11 +19,21 @@
 
 # Learn more: http://github.com/javan/whenever
 
-
+set :output, {:error => 'log/cron_error.log', :standard => "log/cron_log.log"}
 set :environment, 'development'
-# every 1.minute do
-#   rake "email:all_users"
-# end
+
+#contains resources and reminder to fill in confidence ratings
+every :weekday, :at => '8am' do
+  rake "email:all_users_daily"
+end
+
+#week summary with graph
+every :saturday, :at => '10am' do
+  rake "email:all_users_weekly"
+end
+
+
+
 #
 # every :weekday, :at => '7am' do # Use any day of the week or :weekend, :weekday
 #   rake "email:all_users"
