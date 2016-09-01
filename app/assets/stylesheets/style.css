@@ -141,8 +141,10 @@ tr td:hover { background: #666; color: #FFF; } /* Hover cell effect! */
 }
 
 .form-control.selector {
-  width: 6%;
-  display: inline-block;
+    width: 4%;
+    display: inline-block;
+    position: fixed;
+    left: 1000px;
 }
 
 #quote {
