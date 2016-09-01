@@ -1,7 +1,7 @@
 
 #welcome-text
   %h1 BLOOM.
-  %h2 Skill Tracker for Budding Developers
+  %h2 Skill Tracker For Budding Developers
 .fullscreen-bg
   %video.fullscreen-bg__video{:autoplay => "", :loop => "", :muted => "", :poster => "../Coverr-lamp/Coverr-lamp.jpg"}
     %source{:src => "../Coverr-lamp/Coverr-lamp.webm", :type => "video/webm"}
@@ -79,10 +79,14 @@
           },
 
           series: [{
-              showInLegend: false,
+              name: 'Current ratings',
               data: #{@con_array},
               pointPlacement: 'on'
-          },
-          ]
+          },{
+             name: 'Original ratings',
+             data: #{@first_array},
+             pointPlacement: 'on',
+             color: '#FF00FF '
+         }]
       });
   });

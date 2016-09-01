@@ -2,4 +2,43 @@ Hello
 
 This is your data for #{@skill.name}
 
-#{@skilldata}
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+:JavaScript
+ $(function () {
+     $('#container').highcharts({
+         title: {
+             text: 'Weekly chart for #{@skill.name}',
+             x: -20 //center
+         },
+         xAxis: {
+              type: 'datetime',
+              dateTimeLabelFormats: {
+               day: '%e. %b'
+               }
+         },
+         yAxis: {
+             title: {
+                 text: 'Confidence rating'
+             },
+             plotLines: [{
+                 value: 0,
+                 width: 1,
+                 color: '#808080 '
+             }]
+         },
+         legend: {
+             layout: 'vertical',
+             align: 'right',
+             verticalAlign: 'middle',
+             borderWidth: 0
+         },
+         series: [{
+             showInLegend: false,
+             data: #{@skillsdata}
+         }]
+     });
+ });

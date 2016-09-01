@@ -12,7 +12,9 @@ class SkillsController < ApplicationController
       if current_user.skills.any? && current_user.skills[0].confidences.any?
         i = 0
         @con_array = []
+        @first_array = []
         @skills.each do
+          @first_array.push(@skills[i].confidences[0].rating)
           @con_array.push(@skills[i].confidences[-1].rating)
           i += 1
         end
@@ -44,11 +46,10 @@ class SkillsController < ApplicationController
   def show
       @skill = Skill.find(params[:id])
       @skilldata = []
-      i = 0
       @skill.confidences.each do |confidence|
         @skilldata << confidence.rating
-        i += 1
       end
+      @skillsdata = @skilldata.last(7)
   end
 
   private
