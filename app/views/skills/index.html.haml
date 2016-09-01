@@ -1,14 +1,4 @@
 
-#welcome-text
-  %h1 BLOOM.
-  %h2 Skill Tracker For Budding Developers
-.fullscreen-bg
-  %video.fullscreen-bg__video{:autoplay => "", :loop => "", :muted => "", :poster => "../Let-It-Grow/Let-It-Grow.jpg"}
-    %source{:src => "../Let-It-Grow/Let-It-Grow.webm", :type => "video/webm"}
-    %source{:src => "../Let-It-Grow/Let-It-Grow.mp4", :type => "video/mp4"}
-
-= link_to 'Set confidence', new_skill_path, {:id => "button"}
-
 - if current_user
   - if @skills.any?
     %table{:border => 1}
@@ -28,6 +18,9 @@
 
   - else
     %h1 No skills yet!
+    %br
+    %br
+    = link_to 'Set confidence', new_skill_path, {:id => "button"}
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/highcharts-more.js"></script>
