@@ -4,11 +4,13 @@
     %title The Happiness Project.
     %link{:crossorigin => "anonymous", :href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", :integrity => "sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u", :rel => "stylesheet"}
     %link{:type => "text/css", :rel => "stylesheet", :href => "style.css"}
+    %link{:href => "https://fonts.googleapis.com/css?family=Anton|Baloo+Tamma|Nunito", :rel => "stylesheet"}
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
   %body
+
     %nav.navbar.navbar-default{role: "navigation"}
       .navbar-header
         %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", type: "button"}
@@ -16,7 +18,6 @@
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
-        %a.navbar-brand{href: "#"} The Happiness Project
       .collapse.navbar-collapse.navbar-ex1-collapse
         %ul.nav.navbar-nav
           %li
@@ -32,6 +33,7 @@
               = link_to "Sign in", new_user_session_path
             %li
               = link_to "Sign up", new_user_registration_path
+
     = yield
     %p.notice= notice
     %p.alert= alert

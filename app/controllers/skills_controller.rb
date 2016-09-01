@@ -12,11 +12,12 @@ class SkillsController < ApplicationController
       i = 0
       @con_array = []
       # if !@skills[-1].confidences[-1].nil?
+      if @skills
         @skills.each do
           @con_array.push(@skills[i].confidences[-1].rating)
           i += 1
         end
-      # end
+      end
     end
   end
 
@@ -40,6 +41,17 @@ class SkillsController < ApplicationController
 
   def create
     redirect_to '/confidences/new'
+  end
+
+
+  def show
+      @skill = Skill.find(params[:id])
+      @skilldata = []
+      i = 0
+      @skill.confidences.each do |confidence|
+        @skilldata << confidence.rating
+        i += 1
+      end
   end
 
   private
