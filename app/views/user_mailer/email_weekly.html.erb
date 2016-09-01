@@ -1,67 +1,8 @@
-<h3> The Happiness Project </h3>
+<h3> The Bloom Team </h3>
 
 <p> Congrats! You've made it to the end of another successful. </p> <br> <br>
 <p> Here's a sumamry of your junior developer skills, look how far you've come! </p> <br>
 
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/highcharts-more.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-
-<div id="container" style="min-width: 400px; max-width: 600px; height: 400px; margin: 0 auto"></div>
-
-<script>
-  $(function () {
-
-      $('#container').highcharts({
-
-          chart: {
-              polar: true,
-              type: 'line',
-              backgroundColor: 'transparent'
-          },
-
-          title: {
-              text: 'Track your progress',
-              x: -80
-          },
-
-          pane: {
-              size: '80%'
-          },
-
-          xAxis: {
-              categories: #{@skillsarray},
-              tickmarkPlacement: 'on',
-              lineWidth: 0
-          },
-
-          yAxis: {
-              gridLineInterpolation: 'polygon',
-              lineWidth: 0,
-              min: 0
-          },
-
-          tooltip: {
-              shared: true,
-              pointFormat: '<span style="color:{series.color}">{series.name}: <b>${point.y:,.0f}</b><br/>'
-          },
-
-          legend: {
-              align: 'right',
-              verticalAlign: 'top',
-              y: 70,
-              layout: 'vertical'
-          },
-
-          series: [{
-              showInLegend: false,
-              data: #{@con_array},
-              pointPlacement: 'on'
-          },
-          ]
-      });
-  });
-  </script>
-
 <p> Don't forget to update your confidence ratings at the end of the day: <%= @confidence_link_url %> </p> <br>
-<p> Good luck, from The Happiness Project team </P>
+<p> Good luck, from Bloom team. </p>
+<p id="quote"> “They tried to bury us. They didn’t know we were seeds.” </p>
