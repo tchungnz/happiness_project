@@ -11,9 +11,11 @@ class SkillsController < ApplicationController
       @skills.each {|skill| @skillsarray.push(skill.name)}
       i = 0
       @con_array = []
-      @skills.each do
-        @con_array.push(@skills[i].confidences[-1].rating)
-        i += 1
+      if @skills
+        @skills.each do
+          @con_array.push(@skills[i].confidences[-1].rating)
+          i += 1
+        end
       end
     end
   end
@@ -40,21 +42,11 @@ class SkillsController < ApplicationController
     redirect_to '/confidences/new'
   end
 
-  # def create
-  #   @skill = Skill.new(skills_params)
-  #   @skill.user_id = current_user.id
-  #   if @skill.save
-  #     @confidence = Confidence.new(confidence_params)
-  #     @confidence.skill_id = @skill.id
-  #     @confidence.save
-  #     # redirect_to '/skills/new'
-  #   end
-  #   # render 'new'
-  # end
 
   def show
       @skill = Skill.find(params[:id])
       @skilldata = []
+      i = 0
       @skill.confidences.each do |confidence|
         @skilldata << confidence.rating
         i += 1

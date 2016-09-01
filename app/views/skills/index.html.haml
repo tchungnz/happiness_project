@@ -21,7 +21,8 @@
             - sum += 1
           - @skills.each do |skill|
             %tr
-              %td= skill.name
+              %td
+                = link_to "#{skill.name}", skill_path(skill)
               - skill.confidences.each do |confidence|
                 %td=  confidence.rating
 
@@ -40,7 +41,8 @@
 
           chart: {
               polar: true,
-              type: 'line'
+              type: 'line',
+              backgroundColor: 'transparent'
           },
 
           title: {

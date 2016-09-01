@@ -9,7 +9,6 @@ table {
   margin: 10% auto 10% auto;
 }
 
-
 .fullscreen-bg {
   position: fixed;
   top: 0;
@@ -84,9 +83,9 @@ header {
 
 a {
   text-decoration: none;
-  color: white;
   font-size: 20px;
 }
+
 
 table {
 color: #333;
@@ -119,3 +118,28 @@ tr:nth-child(even) td { background: #F1F1F1; }
 tr:nth-child(odd) td { background: #FEFEFE; }
 
 tr td:hover { background: #666; color: #FFF; } /* Hover cell effect! */
+
+
+.navbar-brand {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  margin:0 auto;
+  font-size: 30px;
+}
+
+#ex1Slider .slider-selection {
+	background: #BABABA;
+}
+
+#skill-name {
+  display: inline-block;
+  float: left;
+  padding-left: 50px;
+}
+
+.form-control.selector {
+  width: 6%;
+  display: inline-block;
+}

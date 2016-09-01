@@ -1,11 +1,17 @@
 <head>
   <link rel="stylesheet" type="text/css" href="/style.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.2.0/bootstrap-slider.js" integrity="sha256-iU9myOBXPk66sqiv2ki8Rj3dLLPrAwR695ZTwuK7CSc=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.2.0/css/bootstrap-slider.css" integrity="sha256-0zq42IgCAAGpAmT/d19GvhxiFnQkueptne2EXpoOQYw="crossorigin="anonymous">
 </head>
 
-<h1>
-  <%= @skill %>
-</h1>
-
-<label for="rating">Rating</label>
-<%= select_tag "feedback[][rating]", options_for_select(1..10, selected: "#{@confidence_rating}") %>
-<%= hidden_field_tag "feedback[][skill_id]", @skill_id %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h3 id="skill-name"> <%= @skill %> </h3>
+      <label class="rating-label" for="rating">Rating</label>
+      <!-- <input type="text" name="somename" data-provide="slider" data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-value="5" data-slider-tooltip="show"> -->
+      <%= select_tag "feedback[][rating]", options_for_select(1..10), class: "form-control selector", selected: "#{@confidence_rating}" %>
+      <%= hidden_field_tag "feedback[][skill_id]", @skill_id %>
+    </div>
+  </div>
+</div>
