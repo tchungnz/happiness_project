@@ -52,6 +52,15 @@ class SkillsController < ApplicationController
   #   # render 'new'
   # end
 
+  def show
+      @skill = Skill.find(params[:id])
+      @skilldata = []
+      @skill.confidences.each do |confidence|
+        @skilldata << confidence.rating
+        i += 1
+      end
+  end
+
   private
 
   def skills_params

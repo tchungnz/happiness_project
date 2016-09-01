@@ -1,11 +1,13 @@
 
-
-%h1{:id => "welcome-text"} The Happiness Project
-%h2{:id => "slogan"} Helping you achieve your light bulb moment
+#welcome-text
+  %h1 The Happiness Project
+  %h2 Helping you achieve your light bulb moment.
 .fullscreen-bg
   %video.fullscreen-bg__video{:autoplay => "", :loop => "", :muted => "", :poster => "../Coverr-lamp/Coverr-lamp.jpg"}
     %source{:src => "../Coverr-lamp/Coverr-lamp.webm", :type => "video/webm"}
     %source{:src => "../Coverr-lamp/Coverr-lamp.mp4", :type => "video/mp4"}
+
+= link_to 'Set confidence', new_skill_path, {:id => "button"}
 
 - if current_user
   - if @skills.any?
@@ -25,8 +27,6 @@
 
   - else
     %h1 No skills yet!
-= link_to 'Set confidence', new_skill_path
-= link_to 'Set daily confidence levels', new_confidence_path
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/highcharts-more.js"></script>

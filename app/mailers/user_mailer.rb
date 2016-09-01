@@ -12,4 +12,10 @@ class UserMailer < ApplicationMailer
     end
   end
 
+  def email_resources(user)
+    @confidence = user.skills.sort { |a, b| a.confidences[-1].rating
+      <=> b.confidences[-1].rating }
+    @improvement = @confidence[0].name
+  end
+
 end
