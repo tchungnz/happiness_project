@@ -9,10 +9,9 @@ class SkillsController < ApplicationController
       @skills = current_user.skills
       @skillsarray = []
       @skills.each {|skill| @skillsarray.push(skill.name)}
-      i = 0
-      @con_array = []
-      # if !@skills[-1].confidences[-1].nil?
-      if @skills
+      if current_user.skills.any? && current_user.skills[0].confidences.any?
+        i = 0
+        @con_array = []
         @skills.each do
           @con_array.push(@skills[i].confidences[-1].rating)
           i += 1
@@ -23,20 +22,18 @@ class SkillsController < ApplicationController
 
 
   def new
-    if !current_user.skills.empty?
-      redirect_to '/confidences/new'
-    else
+    if current_user.skills.empty?
     @skill_names = ["Ruby", "Javascript", "HTML", "CSS", "Command Line", "Communication", "Project Work", "TDD", "Agile", "OOP", "Rails", "Databases", "ORM", "jQuery", "Version Control"]
     @skills = []
     @confidences = []
     i = 0
-    15.times do
-      @skills << Skill.create(name: @skill_names[i], user_id: current_user.id)
-      @confidences << Confidence.new
-      i += 1
+      15.times do
+        @skills << Skill.create(name: @skill_names[i], user_id: current_user.id)
+        @confidences << Confidence.new
+        i += 1
+      end
     end
     redirect_to '/confidences/new'
-    end
   end
 
   def create

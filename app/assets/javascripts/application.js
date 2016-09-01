@@ -16,6 +16,6 @@
 //= require turbolinks
 //= require_tree .
 
-$(function() {
-  $('.slider').slider();
-});
+// $(function() {
+//   $('.slider').slider();
+// });
