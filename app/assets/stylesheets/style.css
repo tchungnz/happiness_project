@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Nunito';
-  background-image: url("/assets/grass.jpg");
+  /*background: url('../img/videoframe.jpg') center center / cover no-repeat;;*/
 }
 
 table {
@@ -141,10 +141,16 @@ tr td:hover { background: #666; color: #FFF; } /* Hover cell effect! */
 }
 
 .form-control.selector {
-  width: 6%;
-  display: inline-block;
+    width: 4%;
+    display: inline-block;
+    position: fixed;
+    left: 1200px;
 }
 
 #quote {
   font-style: italic;
+}
+
+input.btn.btn-default {
+  background-color: rgba(107, 186, 167, 0.5);
 }

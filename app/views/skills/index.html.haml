@@ -9,40 +9,15 @@
 
   %p Bloom provides skill metrics and handpicked resources to help you blossom as a junior web developer
 
-- if current_user
-  = link_to 'Set confidence', new_skill_path, {:id => "button"}
-  - if @skills.any?
-    %table{:border => 1}
-      %tbody
-        %tr
-          %td Skills:
-          - sum = 1
-          - @skills[0].confidences.length.times do
-            %td= "Day-#{sum}:"
-            - sum += 1
-          - @skills.each do |skill|
-            %tr
-              %td
-                = link_to "#{skill.name}", skill_path(skill)
-              - skill.confidences.each do |confidence|
-                %td=  confidence.rating
-
-  - else
-    %h1 No skills yet!
-    %br
-    %br
-
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/highcharts-more.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
-<div id="container" style="min-width: 400px; max-width: 600px; height: 400px; margin: 0 auto"></div>
+<div id="container" style="width:90%; height: 90%; position:absolute; margin: auto"></div>
 :JavaScript
   $(function () {
-
       $('#container').highcharts({
-
           chart: {
               polar: true,
               type: 'line',
