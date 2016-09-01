@@ -1,9 +1,13 @@
 #welcome-text
   %h1 BLOOM.
   %h2 Skill Tracker For Budding Developers
+  %br/
+  %h4 Providing skill metrics and handpicked resources to help you blossom as a junior developer.
 .fullscreen-bg
   %video.fullscreen-bg__video{:autoplay => "", :loop => "", :muted => "", :poster => "../Let-It-Grow/Let-It-Grow.jpg"}
     %source{:src => "../Let-It-Grow/Let-It-Grow.webm", :type => "video/webm"}
     %source{:src => "../Let-It-Grow/Let-It-Grow.mp4", :type => "video/mp4"}
 
-= link_to 'Set confidence', new_skill_path, {:id => "button"}
+
+- if user_signed_in?
+  = link_to 'Set confidence', new_skill_path, {:id => "button"}
