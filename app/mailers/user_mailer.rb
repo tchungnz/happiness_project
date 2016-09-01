@@ -4,16 +4,16 @@ class UserMailer < ApplicationMailer
   def email_daily(user)
     @user = user
     @confidence_link_url  = 'http://example.com/login'
-    @skill = "Ruby"
-    @links = Link.find_by(name: "#{@skill}").url_resources
-    mail(to: @user.email, subject: 'The Happiness Project: Useful Resources')
+    @lowest_skill = find_lowest_skill(user)
+    @links = Link.find_by(name: "#{@lowest_skill}").url_resources
+    mail(to: @user.email, subject: 'The Bloom Team: Useful Resources')
   end
 
   def email_weekly(user)
     @user = user
     @con_array = []
     @skillsarray =[]
-    mail(to: @user.email, subject: 'The Happiness Project: End of Week Summary')
+    mail(to: @user.email, subject: 'The Bloom Team: End of Week Summary')
   end
 
   def self.email_all_users_daily(users)
@@ -28,10 +28,13 @@ class UserMailer < ApplicationMailer
     end
   end
 
-  # def email_resources(user)
-  #   @confidence = user.skills.sort { |a, b| a.confidences[-1].rating
-  #     <=> b.confidences[-1].rating }
-  #   @improvement = @confidence[0].name
-  # end
+  def find_lowest_skill(user)
+    @skills = user.skills
+    @confidence_ratings = []
+    @skills.each do |skill|
+      @confidence_ratings << skill.confidences[-1].rating
+    end
+    return @skills[@confidence_ratings.each_with_index.min[1]].name
+  end
 
 end
