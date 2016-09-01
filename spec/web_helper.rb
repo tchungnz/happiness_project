@@ -8,3 +8,15 @@ def sign_up
     click_button 'Sign up'
   end
 end
+
+def add_confidences
+  visit '/'
+  click_link 'Set confidence'
+  within(:css, "#Ruby") do
+    select '5', from: 'feedback__rating'
+  end
+  within(:css, "#Javascript") do
+    select '7', from: 'feedback__rating'
+  end
+  click_button 'Submit'
+end

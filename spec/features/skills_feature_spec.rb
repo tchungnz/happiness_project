@@ -7,11 +7,16 @@ feature 'Skills' do
   end
 
   context 'pre-determined skills have been added' do
-    scenario 'display skills and input form for confidence level' do
+    scenario 'signed in' do
       visit '/'
       click_link 'Set confidence'
       expect(page).to have_content 'Ruby'
       expect(page).to have_content 'Agile'
+    end
+    scenario 'guest user' do
+      click_link 'Sign out'
+      visit '/confidences/new'
+      expect(page).to have_content('You need to sign in or sign up before continuing')
     end
   end
 
@@ -27,22 +32,10 @@ feature 'Skills' do
       click_button 'Submit'
       expect(current_path).to eq '/skills'
       page.has_css? 'g.highcharts-grid'
+      click_link 'View Data Table'
+      expect(page).to have_content 'Ruby 5'
+      expect(page).to have_content 'Javascript 7'
     end
   end
 end
 
-
-
-
-
-  # context 'Adding skills to work on' do
-  #   scenario ' prompts a user to fill out a form, then displays the skill' do
-  #     visit '/skills'
-  #     click_link 'Add a skill'
-  #     fill_in 'Name', with: 'Databases'
-  #     select '2', from: 'Confidence'
-  #     click_button 'Create Skill'
-  #     expect(page).to have_content 'Databases'
-  #     expect(current_path).to eq '/skills'
-  #   end
-  # end
