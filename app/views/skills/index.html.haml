@@ -1,17 +1,17 @@
-<div id="container_skills">
+<html class="container_skills" style="background-color:white;">
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/highcharts-more.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
-<div id="container" style="width:90%; height: 90%; position:absolute; margin: auto"></div>
+<div id="container" style="width:100%; height: 79%; position:absolute; background-color:white;"></div>
 :JavaScript
   $(function () {
       $('#container').highcharts({
           chart: {
               polar: true,
               type: 'line',
-              backgroundColor: 'transparent'
+              backgroundColor: 'white'
           },
 
           title: {
@@ -59,4 +59,4 @@
          }]
       });
   });
-</div>
+</body>
