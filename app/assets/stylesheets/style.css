@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Nunito';
-  /*background: url('../img/videoframe.jpg') center center / cover no-repeat;;*/
+  background: url('/assets/grass.jpg') center center / cover no-repeat;;
 }
 
 table {
@@ -26,6 +26,23 @@ table {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.sign_up {
+  background-color: #e7e7e7;
+  width: 20%;
+  height: 300%;
+  padding-top: 5px;
+  padding-bottom: 30px;
+  margin: auto;
+  margin-top: 10%
+}
+
+.confidence {
+  background-color: #e7e7e7;
+  width: 70%;
+  margin: auto;
+  padding-bottom: 30px;
 }
 
 @media (min-aspect-ratio: 16/9) {
@@ -137,7 +154,6 @@ tr td:hover { background: #666; color: #FFF; } /* Hover cell effect! */
 #skill-name {
   display: inline-block;
   float: left;
-  padding-left: 50px;
 }
 
 .form-control.selector {

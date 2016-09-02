@@ -2,17 +2,17 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<%= form_tag "/confidences" do %>
-  <% @skills.each do |skill| %>
-    <% @skill = skill.name %>
-    <% @skill_id = skill.id %>
-      <% skill.confidences.each do |confidence| %>
-      <% @confidence_rating = confidence.rating %>
-      <% end %>
-    <%= render 'group_member_form' %>
+<div class='confidence'>
+  <%= form_tag "/confidences" do %>
+    <% @skills.each do |skill| %>
+      <% @skill = skill.name %>
+      <% @skill_id = skill.id %>
+        <% skill.confidences.each do |confidence| %>
+        <% @confidence_rating = confidence.rating %>
+        <% end %>
+      <%= render 'group_member_form' %>
+    <% end %>
+    <br/><br/>
+    <%= submit_tag "Submit", class: "btn btn-default" %>
   <% end %>
-  <br/><br/>
-  <%= submit_tag "Submit", class: "btn btn-default" %>
-<% end %>
-
 </div>
