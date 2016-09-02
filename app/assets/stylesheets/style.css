@@ -3,7 +3,10 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Nunito';
-  background: url('/assets/grass.jpg') center center / cover no-repeat;;
+}
+
+#grass_background {
+  background: url('/assets/grass.jpg') center center / cover no-repeat;
 }
 
 table {
@@ -137,7 +140,6 @@ tr:nth-child(odd) td { background: #FEFEFE; }
 
 tr td:hover { background: #666; color: #FFF; } /* Hover cell effect! */
 
-
 .navbar-brand {
   text-align: center;
   position: absolute;
@@ -174,4 +176,13 @@ input.btn.btn-default {
 .notice {
   color: white;
   padding-top: 30px;
+}
+
+a:hover{
+  position: relative;
+top: 1px;
+}
+
+body.container_skills {
+  background-color: white;
 }

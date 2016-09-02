@@ -6,6 +6,8 @@ class UserMailer < ApplicationMailer
     @confidence_link_url  = 'http://example.com/login'
     @lowest_skill = find_lowest_skill(user)
     @links = Link.find_by(name: "#{@lowest_skill}").url_resources
+    puts @links[1]
+    puts @lowest_skill
     mail(to: @user.email, subject: 'The Bloom Team: Useful Resources')
   end
 
