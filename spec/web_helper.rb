@@ -20,3 +20,9 @@ def add_confidences
   end
   click_button 'Submit'
 end
+
+def seven_confidences
+  6.times do 
+    add_confidences
+  end
+end

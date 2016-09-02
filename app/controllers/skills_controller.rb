@@ -8,10 +8,10 @@ class SkillsController < ApplicationController
     if current_user
       @skills = current_user.skills
       @skillsarray = []
-      @skills.each {|skill| @skillsarray.push(skill.name)}
-      i = 0
       @con_array = []
       @first_array = []
+      @skills.each {|skill| @skillsarray.push(skill.name)}
+      i = 0
       if @skills
         @skills.each do
           @first_array.push(@skills[i].confidences[0].rating)
