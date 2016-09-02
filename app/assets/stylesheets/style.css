@@ -175,11 +175,11 @@ input.btn.btn-default {
   padding-top: 30px;
 }
 
-body.container_skills {
-  background-color: white;
-}
-
 a:hover{
   position: relative;
 top: 1px;
+}
+
+body.container_skills {
+  background-color: white;
 }
