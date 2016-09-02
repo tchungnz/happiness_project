@@ -38,8 +38,9 @@ feature 'Confidences' do
     scenario 'viewing the table' do
       visit '/skills'
       click_link 'View Data Table'
-      expect(page).to have_content 'Ruby 5'
-      expect(page).to have_content 'Javascript 7'
+      expect(page).to have_content 'Ruby 5 5 5 5 5 5'
+      expect(page).to have_content 'Javascript 7 7 7 7 7'
+      expect(page).not_to have_content 'Javascript 5 5 5 5 5 5 5'
     end
     scenario 'user has added 7 days of confidences' do
       visit '/skills'
