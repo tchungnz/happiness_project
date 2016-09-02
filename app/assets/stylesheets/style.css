@@ -137,6 +137,9 @@ tr:nth-child(odd) td { background: #FEFEFE; }
 
 tr td:hover { background: #666; color: #FFF; } /* Hover cell effect! */
 
+#whitebackground {
+  background-color: white;
+}
 
 .navbar-brand {
   text-align: center;
@@ -174,4 +177,8 @@ input.btn.btn-default {
 .notice {
   color: white;
   padding-top: 30px;
+}
+
+#container_skills {
+  background-color: white;
 }
