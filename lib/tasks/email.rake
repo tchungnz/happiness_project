@@ -19,7 +19,7 @@ namespace :email do
 end
 
 namespace :db do
-  desc "Sequentially clears out the models I don't care about"
+  desc "resets the links (resouces) model"
   task :reset_links_model => [:environment] do
     Link.destroy_all
   end
