@@ -7,34 +7,19 @@ class SkillsController < ApplicationController
   def index
     if current_user
       @skills = current_user.skills
-      @skillsarray = []
-      @con_array = []
-      @first_array = []
-      @skills.each {|skill| @skillsarray.push(skill.name)}
-      i = 0
       if @skills
-        @skills.each do
-          @first_array.push(@skills[i].confidences[0].rating)
-          @con_array.push(@skills[i].confidences[-1].rating)
-          i += 1
-        end
+        @skillsarray = find_skill_names
+        @con_array = find_latest_ratings
+        @first_array = find_first_ratings
       end
     end
   end
 
-
   def new
-    if !current_user.skills.empty?
-      redirect_to '/confidences/new'
-    else
-    @skill_names = ["Ruby", "Javascript", "HTML", "CSS", "Command Line", "Communication", "Project Work", "TDD", "Agile", "OOP", "Rails", "Databases", "ORM", "jQuery", "Version Control"]
-    i = 0
-    15.times do
-      Skill.create(name: @skill_names[i], user_id: current_user.id)
-      i += 1
+    if current_user.skills.empty?
+      create_skills
     end
     redirect_to '/confidences/new'
-    end
   end
 
   def create
@@ -43,12 +28,8 @@ class SkillsController < ApplicationController
 
 
   def show
-      @skill = Skill.find(params[:id])
-      @skilldata = []
-      @skill.confidences.each do |confidence|
-        @skilldata << confidence.rating
-      end
-      @skillsdata = @skilldata.last(7)
+    @skill = Skill.find(params[:id])
+    @skillsdata = find_current_skills
   end
 
   private
@@ -60,4 +41,48 @@ class SkillsController < ApplicationController
   def confidence_params
     params.require(:confidence).permit(:rating)
   end
+
+  def create_skills
+    @skill_names = Skill.base_skills
+    i = 0
+    @skill_names.length.times do
+      Skill.create(name: @skill_names[i], user_id: current_user.id)
+      i += 1
+    end
+  end
+
+  def find_current_skills
+    @skilldata = []
+    @skill.confidences.each do |confidence|
+      @skilldata << confidence.rating
+    end
+    @skilldata.last(7)
+  end
+
+  def find_latest_ratings
+    con_array = []
+    i = 0
+    @skills.each do
+      con_array.push(@skills[i].confidences[-1].rating)
+      i += 1
+    end
+    return con_array
+  end
+
+  def find_first_ratings
+    first_array = []
+    i = 0
+    @skills.each do
+      first_array.push(@skills[i].confidences[0].rating)
+      i += 1
+    end
+    return first_array
+  end
+
+  def find_skill_names
+    skills_array = []
+    @skills.each {|skill| skills_array.push(skill.name)}
+    return skills_array
+  end
+
 end
